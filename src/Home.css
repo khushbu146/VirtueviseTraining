@@ -1,0 +1,15 @@
+*{
+    margin: auto;
+    padding: 0%;
+}
+
+.background{
+    background-color: rgb(87, 78, 78);
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    gap:1rem;
+    
+} 
