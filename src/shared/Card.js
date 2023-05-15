@@ -1,5 +1,6 @@
 import React, {  useEffect, useState } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 import "./Card.css";
 
 const API = "https://dummyjson.com/products";
@@ -21,14 +22,13 @@ const Card = () => {
 
 
   return (
-    <div>
-      {data.map((obj)=> (
-      
+    <NavLink to="/SingleProduct" >
+      <div className="grid lg:grid-cols-4 gap-4 md:grid-cols-2">
+        {data.map((obj)=> (
             <div className="card">
               <div className="card-item">
                 <div className="card-image">
-                  <img alt='' src={obj.thumbnail}/>
-                 
+                  <img alt='' src={obj.thumbnail}/> 
                 </div>
                 <div className="card-detail">
                   <h1 className="title-card">{obj.title}</h1>
@@ -36,9 +36,9 @@ const Card = () => {
                 </div>
               </div>
             </div>
-      ))}
-
+        ))}
     </div>
+    </NavLink>
   )
 }
 

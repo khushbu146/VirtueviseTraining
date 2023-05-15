@@ -8,8 +8,9 @@
 }
 
 .container{
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     gap:1rem;
-    
+    margin-left: 4rem;
+
 } 

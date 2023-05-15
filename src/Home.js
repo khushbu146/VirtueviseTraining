@@ -3,10 +3,13 @@ import './Home.css';
 import Card from "./shared/Card";
 const Home = () => {
     return(
-        <div className='background'>
+        <div className='background  divide-x-4 
+        divide-green-500'>
+            <div>
                 <div className='container'>
                     <Card/>
-                </div>            
+                </div>
+            </div>            
         </div>
         
     );
