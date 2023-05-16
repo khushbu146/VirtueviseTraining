@@ -1,0 +1,21 @@
+*{
+    padding: auto;
+    margin: 0; 
+}
+
+.header-background{
+    background-color: rgb(152, 148, 160);
+}
+
+.header-display{
+   
+    margin-left: 2rem;
+    margin-top: 1rem;
+    display: flex;
+    gap: 60rem;
+}
+
+.header-section{
+    margin-top: 0;
+    background-color: rgb(152, 148, 160);
+}
