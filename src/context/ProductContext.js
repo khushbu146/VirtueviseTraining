@@ -1,5 +1,4 @@
-import React from "react";
-import { createContext, useContext, useEffect, useReducer } from "react";
+import React, { createContext, useContext, useEffect, useReducer } from "react";
 import axios from "axios";
 import reducer from "../reducer/ProductReducer";
 
@@ -26,7 +25,7 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  //  for single product`
+  //  for single product
 
   const getSingleProduct = async (url) => {
     try {
