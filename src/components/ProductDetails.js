@@ -6,6 +6,7 @@ import "./ProductDetails.css";
 import FormatPrice from "./FormatPrice";
 import { MdSecurity } from "react-icons/md";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
+import AddToCart from "../components/AddToCart";
 const API ="https://dummyjson.com/products";
 const ProductDetails = () => {
     const { getSingleProduct, singleProduct } = useProductContext();
@@ -66,20 +67,19 @@ const ProductDetails = () => {
                     <MdSecurity className="warranty-icon" />
                     <p>2 Year Warranty </p>
                 </div>
+             </div>
+             <div className="product-data-info">
+                <p> Available: <span className="font-bold"> {stock > 0 ? "In Stock" : "Not Available"}</span>
+                </p>
+                <p> ID : <span className="font-bold"> {id} </span>
+                </p>
+                <p>Brand :<span className="font-bold"> {brand} </span>
+                </p>
             </div>
-            <div className="product-data-info">
-            <p>
-              Available:
-              <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
-            </p>
-            <p>
-              ID : <span> {id} </span>
-            </p>
-            <p>
-              Brand :<span> {brand} </span>
-            </p>
-          </div>
-                <h6>add to cart</h6>  
+            {/* Add to Cart */}
+            
+            {stock > 0 && <AddToCart product={singleProduct} />}
+                  
         </div>
     );
 }
