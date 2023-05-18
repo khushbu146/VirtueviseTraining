@@ -6,7 +6,8 @@ import "./ProductDetails.css";
 import FormatPrice from "./FormatPrice";
 import { MdSecurity } from "react-icons/md";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
-import AddToCart from "../components/AddToCart";
+import AddToCart from "./AddToCart";
+import BuyNow from "./BuyNow";
 const API ="https://dummyjson.com/products";
 const ProductDetails = () => {
     const { getSingleProduct, singleProduct } = useProductContext();
@@ -31,10 +32,7 @@ const ProductDetails = () => {
     useEffect(() => {
          getSingleProduct(`${API}/${id}`);
     }, []);
-
-        
-
-    
+            
     return (
         <div className="product-data ">
               <h2>{title}</h2>
@@ -57,7 +55,7 @@ const ProductDetails = () => {
                 </div>
                 <div className="product-warranty-data">
                     <TbReplace className="warranty-icon" />
-                    <p>30 Days Replacement</p>
+                    <p>Easy Replacement</p>
                 </div>
                 <div className="product-warranty-data">
                     <TbTruckDelivery className="warranty-icon" />
@@ -77,9 +75,10 @@ const ProductDetails = () => {
                 </p>
             </div>
             {/* Add to Cart */}
-            
-            {stock > 0 && <AddToCart product={singleProduct} />}
-                  
+            <div className="flex">
+                {stock > 0 && <AddToCart product={singleProduct} />}
+                {stock > 0 && <BuyNow product={singleProduct}/>}      
+            </div>
         </div>
     );
 }

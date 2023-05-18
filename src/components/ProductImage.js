@@ -1,19 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProductImage.css";
 const ProductImage = ({ imgs = [{ url: "" }] }) => {
-    const [mainImage, setMainImage] = useState(imgs[0]);
-    //console.log(mainImage);
+    
+    const [mainImage, setMainImage] = useState();
+    
+    useEffect(() => {
+      setMainImage(imgs[0])
+      
+    }, []);
+    console.log(mainImage);
+    console.log(imgs);
     return (
-      <div>
+      <div className="wrapper">
         <div className="grid grid-four-column">
-          {imgs.map((curElm, index) => {
-            console.log(curElm);
+          { imgs.map((curElm, index) => {
+            //console.log(index);
             return (
               <figure>
                 <img
                   src={curElm}
-                  alt={curElm.filename}
-                  className="box-image--style"
+                  alt={curElm}
+                  className="box-image--style image-style"
                   key={index}
                   onClick={() => setMainImage(curElm)}
                 />
@@ -21,10 +28,9 @@ const ProductImage = ({ imgs = [{ url: "" }] }) => {
             );
           })}
         </div>
-        {/* 2nd column  */}
-        
+         {/* 2nd column  */}
         <div className="main-screen">
-          <img src={mainImage} alt={mainImage.filename} />
+          <img src={mainImage} alt={mainImage} />
         </div>
       </div>
     );

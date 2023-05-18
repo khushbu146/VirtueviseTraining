@@ -34,8 +34,9 @@ const SingleProduct = () => {
         <div className="singleProduct">
             <div className="grid grid-cols-2">
                 {/* product Images  */}
-                <div className="product_images">
-                  <ProductImage imgs={images}/>
+
+                <div className="container">
+                 <ProductImage imgs={images}/>
                 </div>
 
                 {/* product dAta  */}
