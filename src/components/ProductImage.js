@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import "./ProductImage.css";
 const ProductImage = ({ imgs = [{ url: "" }] }) => {
     
-    const [mainImage, setMainImage] = useState();
+    const [mainImage, setMainImage] = useState("");
+    // console.log(imgs[0]);
     
     useEffect(() => {
-      setMainImage(imgs[0])
-      
-    }, []);
-    console.log(mainImage);
-    console.log(imgs);
+      if (imgs.length > 0) {
+        setMainImage(imgs[0]);
+      }
+    }, [imgs]);
+
     return (
       <div className="wrapper">
         <div className="grid grid-four-column">
