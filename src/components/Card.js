@@ -34,9 +34,9 @@ const Card = () => {
                 <div className="card-image">
                   <img alt='' src={obj.thumbnail} className="imgClass" /> 
                 </div>
-                <div className="card-detail">
-                  <h1 className="title-card">{obj.title}</h1>
-                  <p className="desc-card">{obj.description}</p>
+                <div className="card-detail mt-2">
+                  <h1 className="title-card font-bold">{obj.title}</h1>
+                  <p className="desc-carde line-clamp-2">{obj.description}</p>
                 </div>
               </div>
             </div>

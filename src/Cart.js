@@ -25,9 +25,11 @@ const Cart = () => {
   useEffect(() => {
       getSingleProduct(`${API}/${id}`);
   }, []);
-
+  
   const [amount, setAmount] = useState(1);
-
+  const [ mrp, setMrp ] = useState(price + 250); 
+  const [ cost, setCost ] = useState(price);
+  const [ discount, setDiscount ] = useState(discountPercentage);
   const setDecrease = () => {
     amount > 1 ? setAmount(amount - 1) : setAmount(1);
   };
@@ -35,6 +37,22 @@ const Cart = () => {
   const setIncrease = () => {
     amount < stock ? setAmount(amount + 1) : setAmount(stock);
   };
+
+
+
+  const setPriceIncrease = () => {
+    //console.log(cost);
+    cost > 0 ? setCost(price + cost) : setCost(price);
+    mrp > 0 ? setMrp(mrp + 250) : setMrp(price + 250);
+    discount > 0 ? setDiscount(discountPercentage + discount): setDiscount(discountPercentage);
+  }
+
+  const setPriceDecrease = () =>{
+    //console.log(cost);
+    cost > price ? setCost(cost - price) : setCost(price);
+    mrp > price ? setMrp(mrp - 250): setMrp(price + 250);
+    discount > 0 ? setDiscount(discount - discountPercentage ): setDiscount(discountPercentage);
+  }
 
   return (
     <div className="container">
@@ -52,6 +70,8 @@ const Cart = () => {
                             amount={amount}
                             setDecrease={setDecrease}
                             setIncrease={setIncrease}
+                            setPriceIncrease={setPriceIncrease}
+                            setPriceDecrease={setPriceDecrease}
                         />
                     </div>
                 </div>
@@ -70,13 +90,13 @@ const Cart = () => {
                         <p>Delivery Charged</p>
                     </div>
                     <div className="text-right w-1/2 space-y-4 mr-5">
-                        <p><FormatPrice price={price + 250} /></p>
-                        <p>{discountPercentage}%</p>
+                        <p><FormatPrice price={price + 250 < mrp? mrp: price + 250} /></p>
+                        <p>{discountPercentage < discount? discount : discountPercentage}%</p>
                         <p>Free</p>
                     </div>
                 </div>
                 <hr/>
-                <h1 className="font-bold h-8">Total Amount    <FormatPrice price={price} /></h1>
+                <h1 className="font-bold h-8">Total Amount<FormatPrice price={ price < cost? cost : price } /></h1>
             </div>
         </div>
     </div>

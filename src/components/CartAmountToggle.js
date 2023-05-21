@@ -1,15 +1,25 @@
 import React from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
-const CartAmountToggle = ({ amount, setDecrease, setIncrease }) => {
+const CartAmountToggle = ({ amount, setDecrease, setIncrease, setPriceIncrease,setPriceDecrease }) => {
+  const incrementHandler = () => {
+    setIncrease();
+    setPriceIncrease();
+  }
+
+  const decrementHandler = () => {
+    setDecrease();
+    setPriceDecrease();
+  }
+
   return (
     <div className="ml-4 mt-8">
       <div className="flex gap-7">
-        <button onClick={() => setDecrease()}>
+        <button onClick={decrementHandler}>
           <FaMinus />
         </button>
         <div className="amount-style">{amount}</div>
-        <button onClick={() => setIncrease()}>
+        <button onClick={incrementHandler}>
           <FaPlus />
         </button>
       </div>

@@ -1,14 +1,41 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { FiShoppingCart } from "react-icons/fi";
+import { CgMenu, CgClose } from "react-icons/cg";
 import "./Navbar.css";
 const Navbar = () => {
+    const [menuIcon, setMenuIcon] = useState(false);
+
+    //console.log(menuIcon);
     return (
-        <div className='display'>
-            <NavLink to='/'>HOME</NavLink>
-            <NavLink to='/'>PRODUCTS</NavLink>
-            <NavLink to='/'>CART</NavLink>
-            
-        </div>
+        <nav>
+            <div className={menuIcon ? "navbar active" : "navbar"}>
+            {/* <div className="">  */}
+            {console.log(menuIcon)}
+                <div className="mt-10 ">
+                    <ul className='display navbar-lists'>
+                        <li><a  className="text-white-500 hover:text-gray-800" href="/" onClick={() => setMenuIcon(false)}>HOME</a></li>
+                        <li><a className="text-white-500 hover:text-gray-800" href="/"  onClick={() => setMenuIcon(false)}>PRODUCTS</a></li>
+                        <li><a className="text-white-500 hover:text-gray-800 cart-trolley--link" href="/cart">
+                            <FiShoppingCart className="cart-trolley" />
+                            <span className="cart-total--item"> 0 </span>      
+                        </a></li>
+                    </ul>
+                </div>
+                {/* two button for open and close of menu */ }
+                <div className="mobile-navbar-btn">
+                    <CgMenu
+                        name="menu-outline"
+                        className="mobile-nav-icon"
+                        onClick={() => setMenuIcon(true)}
+                    />
+                    <CgClose
+                        name="close-outline"
+                        className="mobile-nav-icon close-outline"
+                        onClick={() => setMenuIcon(false)}
+                    />
+                </div>
+            </div>
+        </nav>
     );      
 }
 export default Navbar;
