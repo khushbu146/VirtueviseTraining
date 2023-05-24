@@ -1,15 +1,15 @@
 import React from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
-const CartAmountToggle = ({ amount, setDecrease, setIncrease, setPriceIncrease,setPriceDecrease }) => {
+const CartAmountToggle = ({ amount, setDecrease, setIncrease }) => {
   const incrementHandler = () => {
     setIncrease();
-    setPriceIncrease();
+    // setPriceIncrease();
   }
 
   const decrementHandler = () => {
     setDecrease();
-    setPriceDecrease();
+    // setPriceDecrease();
   }
 
   return (

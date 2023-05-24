@@ -13,12 +13,14 @@ const initialState = {
 };
 
 const AppProvider = ({ children }) => {
+  
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  const getProducts = async (url) => {
+  
+  const getProducts = async () => {
     try {
-      const res = await axios.get(url);
+      const res = await axios.get(API);
       const products = await res.data;
+      //optional chaining
       dispatch({ type: "SET_API_DATA", payload: products });
     } catch (error) {
       dispatch({ type: "API_ERROR" });
@@ -38,11 +40,12 @@ const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getProducts(API);
+    getProducts();
   }, []);
 
+
   return (
-    <AppContext.Provider value={{ ...state, getSingleProduct }}>
+    <AppContext.Provider value={{ ...state, getSingleProduct,getProducts}}>
       {children}
     </AppContext.Provider>
   );

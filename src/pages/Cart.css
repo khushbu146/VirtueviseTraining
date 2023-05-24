@@ -1,0 +1,11 @@
+.price-details{
+    border-bottom: 1px solid #ccc;
+}
+
+.cart-item{
+    padding: 3.2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;    
+} 
+

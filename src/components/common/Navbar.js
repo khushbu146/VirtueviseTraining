@@ -5,16 +5,15 @@ import "./Navbar.css";
 const Navbar = () => {
     const [menuIcon, setMenuIcon] = useState(false);
 
-    //console.log(menuIcon);
     return (
         <nav>
             <div className={menuIcon ? "navbar active" : "navbar"}>
             {/* <div className="">  */}
-            {console.log(menuIcon)}
-                <div className="mt-10 ">
+                <div className="">
                     <ul className='display navbar-lists'>
                         <li><a  className="text-white-500 hover:text-gray-800" href="/" onClick={() => setMenuIcon(false)}>HOME</a></li>
                         <li><a className="text-white-500 hover:text-gray-800" href="/"  onClick={() => setMenuIcon(false)}>PRODUCTS</a></li>
+                        <li><a className="text-white-500 hover:text-gray-800" href="/login"  onClick={() => setMenuIcon(false)}>LOGIN</a></li>
                         <li><a className="text-white-500 hover:text-gray-800 cart-trolley--link" href="/cart">
                             <FiShoppingCart className="cart-trolley" />
                             <span className="cart-total--item"> 0 </span>      

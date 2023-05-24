@@ -3,8 +3,7 @@ import "./ProductImage.css";
 const ProductImage = ({ imgs = [{ url: "" }] }) => {
     
     const [mainImage, setMainImage] = useState("");
-    // console.log(imgs[0]);
-    
+     
     useEffect(() => {
       if (imgs.length > 0) {
         setMainImage(imgs[0]);
@@ -15,14 +14,12 @@ const ProductImage = ({ imgs = [{ url: "" }] }) => {
       <div className="wrapper">
         <div className="grid grid-four-column">
           { imgs.map((curElm, index) => {
-            //console.log(index);
             return (
-              <figure>
+              <figure key={curElm.id}>
                 <img
                   src={curElm}
                   alt={curElm}
                   className="box-image--style image-style"
-                  key={index}
                   onClick={() => setMainImage(curElm)}
                 />
               </figure>

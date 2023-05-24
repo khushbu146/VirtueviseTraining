@@ -1,29 +1,24 @@
 import React, { useEffect }from "react";
-import { useProductContext } from "../context/ProductContext";
+import { useProductContext } from "../../context/ProductContext";
 import { useParams } from "react-router-dom";
-import Star from "./Star";
+import Star from "../Star";
 import "./ProductDetails.css";
-import FormatPrice from "./FormatPrice";
+import FormatPrice from "../FormatPrice";
 import { MdSecurity } from "react-icons/md";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
-import AddToCart from "./AddToCart";
-import BuyNow from "./BuyNow";
+import AddToCart from "../cart/AddToCart";
+// import BuyNow from "./BuyNow";
 const API ="https://dummyjson.com/products";
 const ProductDetails = () => {
     const { getSingleProduct, singleProduct } = useProductContext();
     
     const {
-        _id,
         title,
         description,
         price,
-        discountPercentage,
         rating,
         stock,
-        brand,
-        category,
-        thumbnail,
-        images
+        brand
       } = singleProduct;
 
     const { id } = useParams();
@@ -31,7 +26,7 @@ const ProductDetails = () => {
     
     useEffect(() => {
          getSingleProduct(`${API}/${id}`);
-    }, []);
+    });
             
     return (
         <div className="product-data ">
@@ -77,7 +72,7 @@ const ProductDetails = () => {
             {/* Add to Cart */}
             <div className="flex">
                 {stock > 0 && <AddToCart product={singleProduct} />}
-                {stock > 0 && <BuyNow product={singleProduct}/>}      
+                {/* {stock > 0 && <BuyNow product={singleProduct}/>}       */}
             </div>
         </div>
     );

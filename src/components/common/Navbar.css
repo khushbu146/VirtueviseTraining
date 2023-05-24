@@ -79,8 +79,10 @@
     }
     .active .close-outline {
       display: inline-block;
+      margin-top: 0;
     }
     .navbar-lists {
+      margin-top: 0;
       width: 100vw;
       height: 100vh;
       position: absolute;
@@ -93,9 +95,6 @@
       flex-direction: column;
       visibility: hidden;
       opacity: 0;
-      transform: translateX(100%);
-      /* transform-origin: top; */
-      transition: all 3s linear;
     }
     .active .navbar-lists {
       visibility: visible;

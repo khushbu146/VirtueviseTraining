@@ -25,18 +25,17 @@ const Card = () => {
     //console.log(id)
     navigate(`/singleProduct/${id}`);
  }
-  return (
-    
+  return (    
       <div className="grid lg:grid-cols-4 gap-4 md:grid-cols-2">
         {data.map((obj)=> (
             <div className="card" onClick={()=>onClickHAndler(obj.id)} key={obj.id}>
               <div className="card-item">
                 <div className="card-image">
-                  <img alt='' src={obj.thumbnail} className="imgClass" /> 
+                  <img alt='' src={obj?.thumbnail} className="imgClass" /> 
                 </div>
                 <div className="card-detail mt-2">
                   <h1 className="title-card font-bold">{obj.title}</h1>
-                  <p className="desc-carde line-clamp-2">{obj.description}</p>
+                  <p className="desc-card line-clamp-2">{obj.description}</p>
                 </div>
               </div>
             </div>
