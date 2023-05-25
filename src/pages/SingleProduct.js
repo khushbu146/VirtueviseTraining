@@ -10,9 +10,7 @@ const API = "https://dummyjson.com/products";
 const SingleProduct = () => {
 
   const { getSingleProduct, singleProduct } = useProductContext();
-  const {
-    images
-  } = singleProduct;
+  const {images} = singleProduct;
 
   const { id } = useParams();  
   useEffect(() => {

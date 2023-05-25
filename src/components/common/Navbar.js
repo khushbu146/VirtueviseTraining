@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
+import { useCartContext } from '../../context/CartContext';
 import "./Navbar.css";
 const Navbar = () => {
     const [menuIcon, setMenuIcon] = useState(false);
-
+    const { cart } = useCartContext();
+    // console.log(cart.length);
     return (
         <nav>
             <div className={menuIcon ? "navbar active" : "navbar"}>
@@ -16,7 +18,7 @@ const Navbar = () => {
                         <li><a className="text-white-500 hover:text-gray-800" href="/login"  onClick={() => setMenuIcon(false)}>LOGIN</a></li>
                         <li><a className="text-white-500 hover:text-gray-800 cart-trolley--link" href="/cart">
                             <FiShoppingCart className="cart-trolley" />
-                            <span className="cart-total--item"> 0 </span>      
+                            <span className="cart-total--item"> {cart.length} </span>      
                         </a></li>
                     </ul>
                 </div>
