@@ -14,7 +14,7 @@ const Navbar = () => {
                 <div className="">
                     <ul className='display navbar-lists'>
                         <li><a  className="text-white-500 hover:text-gray-800" href="/" onClick={() => setMenuIcon(false)}>HOME</a></li>
-                        <li><a className="text-white-500 hover:text-gray-800" href="/"  onClick={() => setMenuIcon(false)}>PRODUCTS</a></li>
+                        <li><a className="text-white-500 hover:text-gray-800" href="/product"  onClick={() => setMenuIcon(false)}>PRODUCTS</a></li>
                         <li><a className="text-white-500 hover:text-gray-800" href="/login"  onClick={() => setMenuIcon(false)}>LOGIN</a></li>
                         <li><a className="text-white-500 hover:text-gray-800 cart-trolley--link" href="/cart">
                             <FiShoppingCart className="cart-trolley" />

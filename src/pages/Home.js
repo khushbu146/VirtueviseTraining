@@ -3,14 +3,7 @@ import './Home.css';
 import Card from "../components/Card";
 const Home = () => {
     return(
-        <div className='background  divide-x-4 
-        divide-green-500 gap-1'>
-            <div className=''>
-                <div className='container mx-auto'>
-                    <Card/>
-                </div>
-            </div>            
-        </div>
-    );
+        <h1>home</h1>
+    )
 }
 export default Home;
